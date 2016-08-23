@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/rhel7:latest
+FROM registry.access.redhat.com/rhel7.2:latest
 RUN yum update -y && \
     yum install -y httpd
 USER apache
