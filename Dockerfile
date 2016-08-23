@@ -1,4 +1,4 @@
-FROM rhel7
+FROM rhel7:latest
 RUN yum update -y && \
     yum install -y httpd
 USER apache
