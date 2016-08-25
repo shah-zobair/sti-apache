@@ -2,6 +2,7 @@ FROM registry.access.redhat.com/rhel7.2:latest
 RUN yum update -y && \
     yum install -y httpd mod_rewrite php* mod_ssl && yum clean all
 
+RUN chown -R apache:apache /var/log/httpd && chown -R apache:apache /etc/httpd && chmod -R 777 /var/run/httpd && chmod -R 777 /etc
 RUN sed -i 's/Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf && sed -i 's/Listen 443/Listen 8443/g' /etc/httpd/conf.d/ssl.conf && sed -i 's/VirtualHost _default_:443/VirtualHost _default_:8443/g' /etc/httpd/conf.d/ssl.conf
 
 USER 48
